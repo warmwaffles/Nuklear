@@ -117,17 +117,20 @@ NK_LIB nk_bool nk_is_upper(int c);
 NK_LIB int nk_to_upper(int c);
 NK_LIB int nk_to_lower(int c);
 
-#ifndef NK_MEMCPY
 NK_LIB void* nk_memcopy(void *dst, const void *src, nk_size n);
+#ifndef NK_MEMCPY
+#define NK_MEMCPY nk_memcopy
 #endif
-#ifndef NK_MEMSET
 NK_LIB void nk_memset(void *ptr, int c0, nk_size size);
+#ifndef NK_MEMSET
+#define NK_MEMSET nk_memset
 #endif
 NK_LIB void nk_zero(void *ptr, nk_size size);
 NK_LIB char *nk_itoa(char *s, long n);
 NK_LIB int nk_string_float_limit(char *string, int prec);
-#ifndef NK_DTOA
 NK_LIB char *nk_dtoa(char *s, double n);
+#ifndef NK_DTOA
+#define NK_DTOA nk_dtoa
 #endif
 NK_LIB int nk_text_clamp(const struct nk_user_font *font, const char *text, int text_len, float space, int *glyphs, float *text_width, nk_rune *sep_list, int sep_count);
 NK_LIB struct nk_vec2 nk_text_calculate_text_bounds(const struct nk_user_font *font, const char *begin, int byte_len, float row_height, const char **remaining, struct nk_vec2 *out_offset, int *glyphs, int op);
