@@ -1,5 +1,4 @@
-#ifndef NK_INTERNAL_H
-#define NK_INTERNAL_H
+#pragma once
 
 #ifndef NK_POOL_DEFAULT_CAPACITY
 #define NK_POOL_DEFAULT_CAPACITY 16
@@ -349,6 +348,3 @@ nk_stbtt_free(void *ptr, void *user_data) {
 #endif /* STBTT_malloc */
 
 #endif /* NK_INCLUDE_FONT_BAKING */
-
-#endif
-
