@@ -1,6 +1,20 @@
 cmake_minimum_required(VERSION 3.20 FATAL_ERROR)
 
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
 project(nuklear VERSION 4.8.6 LANGUAGES C)
+
+if(NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE DEBUG)
+endif(NOT CMAKE_BUILD_TYPE)
+
+set(CMAKE_C_FLAGS "-std=c99 -Wall -Wextra -Wpedantic -Wuninitialized")
+set(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS} -g")
+set(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS} -O3")
+
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
+
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 set(SOURCES
     src/nuklear_9slice.c
@@ -58,3 +72,5 @@ target_include_directories(nuklear
 )
 
 export(TARGETS nuklear FILE nuklear_config.cmake)
+
+add_subdirectory(example)
