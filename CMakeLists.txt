@@ -60,6 +60,13 @@ set(SOURCES
     src/nuklear_window.c
 )
 
+add_compile_definitions(NK_INCLUDE_DEFAULT_FONT=1)
+add_compile_definitions(NK_INCLUDE_FONT_BAKING=1)
+add_compile_definitions(NK_INCLUDE_VERTEX_BUFFER_OUTPUT=1)
+add_compile_definitions(NK_INCLUDE_DEFAULT_ALLOCATOR=1)
+add_compile_definitions(NK_INCLUDE_STANDARD_IO=1)
+add_compile_definitions(NK_INCLUDE_FIXED_TYPES=1)
+
 include_directories(include)
 add_library(nuklear STATIC ${SOURCES})
 

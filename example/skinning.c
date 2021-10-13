@@ -12,14 +12,7 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 
-#define NK_INCLUDE_FIXED_TYPES
-#define NK_INCLUDE_STANDARD_IO
-#define NK_INCLUDE_DEFAULT_ALLOCATOR
-#define NK_INCLUDE_VERTEX_BUFFER_OUTPUT
-#define NK_INCLUDE_FONT_BAKING
-#define NK_INCLUDE_DEFAULT_FONT
-#define NK_IMPLEMENTATION
-#include "../nuklear.h"
+#include "nuklear.h"
 
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
@@ -282,7 +275,7 @@ device_draw(struct device *dev, struct nk_context *ctx, int width, int height,
                 {NK_VERTEX_COLOR, NK_FORMAT_R8G8B8A8, NK_OFFSETOF(struct nk_glfw_vertex, col)},
                 {NK_VERTEX_LAYOUT_END}
             };
-            NK_MEMSET(&config, 0, sizeof(config));
+            memset(&config, 0, sizeof(config));
             config.vertex_layout = vertex_layout;
             config.vertex_size = sizeof(struct nk_glfw_vertex);
             config.vertex_alignment = NK_ALIGNOF(struct nk_glfw_vertex);

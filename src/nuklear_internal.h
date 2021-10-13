@@ -94,11 +94,13 @@ NK_GLOBAL const struct nk_color nk_yellow = {255,255,0,255};
 
 /* math */
 NK_LIB float nk_inv_sqrt(float n);
-#ifndef NK_SIN
 NK_LIB float nk_sin(float x);
+#ifndef NK_SIN
+#define NK_SIN nk_sin
 #endif
-#ifndef NK_COS
 NK_LIB float nk_cos(float x);
+#ifndef NK_COS
+#define NK_COS nk_cos
 #endif
 NK_LIB nk_uint nk_round_up_pow2(nk_uint v);
 NK_LIB struct nk_rect nk_shrink_rect(struct nk_rect r, float amount);
